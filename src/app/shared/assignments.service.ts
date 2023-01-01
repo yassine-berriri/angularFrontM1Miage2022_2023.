@@ -48,7 +48,7 @@ export class AssignmentsService {
   ]
 
   constructor( private LoggingService:LoggingService,private http:HttpClient ) { }
-  url = "http://localhost:8010/api/assignments";
+  url = "https://nodejsbackend-miage2022-2023test8.onrender.com/api/assignments";
   getAssignments():Observable<Assignment[]>{
     //return of(this.assignments);
     return this.http.get<Assignment[]>(this.url) 
