@@ -1,0 +1,79 @@
+
+    <mat-toolbar>
+    
+    
+        
+    
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="opened=!opened">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span routerLink="/assignments">
+        Assignment
+      </span>
+    
+      
+       &nbsp;
+       &nbsp;
+       
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon routerLink="/add">add</mat-icon>
+          </button>
+          <span routerLink="/add" >Ajouter Assignment</span>
+
+        &nbsp;
+        &nbsp;    
+  
+
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="initialiserLaBase()">
+      <mat-icon>storage</mat-icon>
+    </button>
+    <span routerLink="/assignments" (click)="initialiserLaBase()">
+      PeuplerDB
+    </span>
+          
+        
+    
+    <div class="login" >
+      <app-home  *ngIf="!isLoggedIn() ; else nonsoumis"></app-home>
+    </div>
+    
+      <ng-template #nonsoumis>
+        <button mat-flat-button color="primary" (click)="disconnection()" >
+        disconnect
+     </button>
+      </ng-template>
+   
+   
+
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+     <mat-icon>share</mat-icon>
+   </button>
+  </mat-toolbar>
+
+  
+ 
+  <mat-sidenav-container>
+  
+    <mat-sidenav [(opened)]="opened" mode="side">
+      <mat-list>
+        <mat-list-item><a routerLink="/add" style="text-decoration: none;">Ajouter Assignment</a></mat-list-item>
+        <mat-list-item><a routerLink="/assignments" style="text-decoration: none;">Assignments</a></mat-list-item>
+        <mat-list-item><a routerLink="/assignments" *ngIf="isLoggedIn(); else nonsoumise" (click)="disconnection()" style="text-decoration: none;">Disconnect</a></mat-list-item>
+        <ng-template #nonsoumise>
+          <mat-list-item><a routerLink="/assignments"  style="text-decoration: none;">Connect</a></mat-list-item>
+       </ng-template>     
+      </mat-list>
+
+      </mat-sidenav>
+   
+      <mat-sidenav-content>
+       
+      <router-outlet></router-outlet>
+       
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+

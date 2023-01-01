@@ -1,0 +1,116 @@
+
+<!--<main class="container"  *ngIf="formVisible">-->
+  <br>
+
+  <main class="container" >
+
+
+<br>
+
+
+<!--
+<app-assignment-detail (deleteAssignment)="onDeletedAssignment($event)" [assignementTransmis]="assignementSelectionne" ></app-assignment-detail>
+-->
+<div class="assignmentInfo">
+  <p>Nombre total d'assignments = {{totalDocs}} </p>
+  <p>nombre total de pages = {{totalPages}}</p>
+  <p>nombre d'assignments par page : <input type="range" min=1 max=100 value=10 [(ngModel)]="limit" (change)="getAssignments()" >{{limit}}</p>
+  <div class="buttons">
+  <button mat-raised-button color="primary" (click)="premierePage()"  [disabled] ="page===1">premiere</button>&nbsp;
+  <button mat-raised-button color="primary" (click)="pagePrecedente()" [disabled]="!hasPrevPage">precedent</button>&nbsp;
+  <button mat-raised-button color="primary" (click)="pageSuivante()" [disabled] = "!hasNextPage">suivant</button>&nbsp;
+  <button mat-raised-button color="primary" (click)="dernierePage()" [disabled] ="page===totalPages">derniere</button>
+  </div>
+</div>
+
+<br>
+<!--
+<mat-list *ngFor="let assignment of assignments">
+  <nav><a routerLink="/assignment/{{assignment.id}}">
+  <h3 mat-subheader>{{assignment.dateDeRendu | date}}</h3>
+  <mat-list-item (click)="assignmentClique(assignment)" >
+    <p appRendu *ngIf="assignment.rendu ; else nonsoumis">
+      Devoir intitulé {{assignment.nom}} a été rendu
+    </p>
+  <ng-template #nonsoumis>
+    <p appNonRendu>Le devoir {{assignment.nom}} n'a pas été rendu . </p>
+
+  </ng-template>
+  <mat-divider></mat-divider>
+
+  </mat-list-item>
+</a></nav>
+</mat-list>
+-->
+
+<div class="table">
+<table mat-table [dataSource]="dataSource"  matSort  class="mat-elevation-z8 demo-table">
+  <!-- Position Column -->
+  <ng-container matColumnDef="demo-id" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header  sortActionDescription="Sort by number"> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="demo-nom">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> Nom </th>
+    <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+  </ng-container>
+
+  <!-- prof Column -->
+  <ng-container matColumnDef="demo-prof">
+    <th mat-header-cell *matHeaderCellDef > prof </th>
+    <td mat-cell *matCellDef="let element">
+      <img [src]="element.urlTeacherImage">
+       </td>
+  </ng-container>
+
+    <!-- matiere Column -->
+    <ng-container matColumnDef="demo-matiere">
+      <th mat-header-cell *matHeaderCellDef  > matiere </th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.urlSubjectImage">
+         </td>
+    </ng-container>
+
+   <!-- eleve Column -->
+   <ng-container matColumnDef="demo-eleve">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> eleve </th>
+    <td mat-cell *matCellDef="let element"> {{element.auteur}} </td>
+  </ng-container>
+
+  
+   <!-- note Column -->
+   <ng-container matColumnDef="demo-note">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> note </th>
+    <td mat-cell *matCellDef="let element"> {{element.note}} </td>
+  </ng-container>
+
+  
+
+  <!-- date Column -->
+  <ng-container matColumnDef="demo-dateDeRendu" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by date"> date de rendu </th>
+    <td mat-cell *matCellDef="let element"> {{element.dateDeRendu|date}} </td>
+  </ng-container>
+
+  <!-- rendu Column -->
+  <ng-container matColumnDef="demo-rendu">
+    <th mat-header-cell *matHeaderCellDef> rendu </th>
+    <td mat-cell  *matCellDef="let element" > {{element.rendu}} </td>
+    
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true; "></tr>
+  <tr mat-row  routerLink="/assignment/{{row.id}}" *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+
+
+
+</main>
+<!--
+<app-add-assignment *ngIf="!formVisible"(nouvelAssignment)=onNouvelAssignment($event) >
+
+</app-add-assignment>
+-->

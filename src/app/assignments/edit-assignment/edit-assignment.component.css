@@ -1,0 +1,39 @@
+h1{
+    margin-left: 2%;
+    margin-top: 2%;
+    color: burlywood;
+}
+.lineTwo{
+    width: 99%;
+
+    display: flex;
+    justify-content: center;
+}
+.remarque mat-form-field {
+    width: 80%;
+}
+.remarque{
+    width: 36%;
+}
+
+button {
+    border: 1px solid;
+    position: relative;
+    left: 47%;
+}
+.Inputsline{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+p{
+    
+    display: flex;
+    justify-content: center;
+}
+img{
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 7px;
+}

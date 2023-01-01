@@ -1,0 +1,50 @@
+<div class="container" *ngIf="assignment">
+    <h1>Edition de l'assignment {{assignment.nom}}</h1>
+    <form ngForm class="form" #formupdate >
+      <div class="Inputsline">
+      <mat-form-field>
+
+        <input matInput placeholder="Edition du nom" [(ngModel)]="nomAssignment" name="assignment-name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Edition de la date" [(ngModel)]="dateDeRendu" name="date">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+      <input matInput [(ngModel)]="nomEleve" name="nom" placeholder="Edition du nom  d'eleve"  >
+    </mat-form-field>
+
+     <mat-form-field>
+      <input matInput [(ngModel)]="note" name="note" min="0" max="20" step="0.5" (ngModelChange)="onValueChange()" placeholder="edition de la Note" type="number"  >
+    </mat-form-field>
+  </div>
+  <div class="lineTwo">
+  <div class="remarque">
+    <mat-form-field class="example-full-width">
+      <mat-label>Remarque</mat-label>
+      <textarea matInput [(ngModel)]="remarque" name="remarque" placeholder="edition de la remarque"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="subjectField">
+    <mat-form-field appearance="fill">
+      <mat-label>modifier la matiere</mat-label>
+      <mat-select [(value)]="selectedOptionId" [(ngModel)]="subjectId" name="subjectId"  (selectionChange)="onOptionSelected($event)" >
+        <mat-option *ngFor="let sub of subjects"   [value]="sub.id">
+          <img [src]="sub.urlSubjectImage" alt="aa">&nbsp;
+          <img [src]="sub.urlTeacherImage" alt="aa">
+          {{sub.subjectName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+      <button mat-raised-button color="primary" (click)="onSaveAssignment(); formupdate.reset(); " routerLink="/assignment/{{assignment.id}}" [disabled]="((!nomAssignment)||(!dateDeRendu))||(!isLoggedIn())">
+        Sauver
+      </button>
+    </form>
+    <p *ngIf="!isLoggedIn()"> il faut se connecter pour modifier un devoir</p>
+   </div>
+   

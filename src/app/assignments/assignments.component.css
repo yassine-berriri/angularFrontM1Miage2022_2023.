@@ -1,0 +1,74 @@
+.rendu{
+    color: red;
+    border: 1px dashed;
+    background-color: aquamarine;
+}
+
+.nonRendu{
+    color: red;
+    border: 1px dashed;
+    border-radius: 15px;
+    background-color: bisque;
+}
+form{
+    display:flex;
+    flex-direction: column;
+    margin:5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: whitesmoke;
+ }
+
+
+
+
+.ajouterBtn{
+    align-self: flex-end;
+}
+.buttons{
+    align-self: flex-start;
+}
+.demo-table {
+    width: 95%;
+    
+}
+.table{
+  display: flex;
+  justify-content: center;
+}
+
+.mat-column-demo-id {
+  width: 32px;
+  border-right: 1px solid currentColor;
+  padding-right: 24px;
+  text-align: center;
+}
+
+.mat-column-demo-nom {
+  padding-left: 16px;
+  font-size: 20px;
+}
+
+.mat-column-demo-datDeRendu {
+  font-style: italic;
+}
+
+.mat-column-demo-rendu {
+  
+  text-align: center;
+  font-weight: bold;
+}
+
+td{
+  cursor: pointer;
+}
+img{
+  width: 30px;
+  height: 30px;
+  position: relative;
+ 
+}
+
+.assignmentInfo{
+  padding-left: 2%;
+}

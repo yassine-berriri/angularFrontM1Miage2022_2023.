@@ -1,0 +1,47 @@
+form{
+     margin-top: 5%;
+   
+    
+ 
+}
+p{
+    text-align: center;
+}
+.Inputsline{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.remarque{
+    
+  
+}
+
+.lineTwo{
+    width: 99%;
+
+    display: flex;
+    justify-content: center;
+}
+.remarque mat-form-field {
+    width: 80%;
+}
+.remarque{
+    width: 36%;
+}
+
+button {
+    border: 1px solid;
+    position: relative;
+    left: 46%;
+    top: 63px;
+
+}
+img{
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 7px;
+}
+
+

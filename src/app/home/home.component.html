@@ -1,0 +1,17 @@
+<form class="login">
+   
+
+    <mat-form-field>
+        <input matInput type="email"  [(ngModel)]="email" placeholder="email" name="email">
+      </mat-form-field>&nbsp;
+
+      
+    <mat-form-field>
+        <input matInput type="password"  [(ngModel)]="password"  placeholder="password" name="password">
+      </mat-form-field>&nbsp;&nbsp;
+      <mat-slide-toggle color="primary" (click)="isAdmin()">Admin</mat-slide-toggle>&nbsp;
+
+      <button mat-flat-button color="primary" (click)="connection()" >
+         connect
+      </button>
+</form>

@@ -1,0 +1,63 @@
+<form #assignmentForm class="form"   ngForm (submit)="onSubmit(); assignmentForm.reset() "  >
+
+  
+    <div class="Inputsline">
+    <mat-form-field>
+       <input matInput [(ngModel)]="nomDevoir" name="nom" placeholder="Ecrire le nom  de TD" required>
+    </mat-form-field>
+    
+  
+    <mat-form-field>
+      <input
+      matInput [matDatepicker]="picker" name="date" placeholder="date de rendu"
+      [(ngModel)]="dateRendu"
+      >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+     
+    </mat-form-field>
+
+     
+    <mat-form-field>
+      <input matInput [(ngModel)]="nomEleve" name="nom" placeholder="Ecrire le nom  de l'eleve" required  >
+    </mat-form-field>
+
+    
+   
+  </div>
+  <div class="lineTwo">
+  <div class="remarque">
+    <mat-form-field class="example-full-width">
+      <mat-label>Remarque</mat-label>
+      <textarea matInput [(ngModel)]="remarque" name="remarque" placeholder="ecrire votre remarque"></textarea>
+    </mat-form-field>
+  </div>
+
+    <div class="subjectField">
+      <mat-form-field appearance="fill">
+        <mat-label>choisir une matiere</mat-label>
+        <mat-select [(value)]="selectedOptionId" (selectionChange)="onOptionSelected($event)" >
+          <mat-option *ngFor="let sub of subjects"   [value]="sub.id">
+            <img [src]="sub.urlSubjectImage" alt="aa">&nbsp;
+            <img [src]="sub.urlTeacherImage" alt="aa">
+            {{sub.subjectName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+      <div class="submit-button">
+    <button mat-stroked-button 
+           color="primary"
+           type="button"
+           #assignmentForm
+         (click)="onSubmit()"
+         [disabled] = "!isLoggedIn()"
+           >
+      Ajouter un devoir 
+    </button>
+  </div>
+  
+  </form>
+  <p *ngIf="!isLoggedIn()"> il faut se connecter pour ajouter un devoir</p>
