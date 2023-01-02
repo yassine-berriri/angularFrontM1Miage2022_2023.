@@ -59,7 +59,11 @@ export class AssignmentDetailComponent implements OnInit {
 getAssignment(){
   const id =+this.route.snapshot.params['id'];
   this.assignmentService.getAssignment(id)
-  .subscribe(assignment =>this.assignementTransmis = assignment)
+  .subscribe((assignment) =>{
+    this.assignementTransmis = assignment
+    
+  })
+  
 }
 
 onClickEdit(){

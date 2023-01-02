@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   constructor(private http:HttpClient ) { }
-  url = "http://localhost:8010/api/user";
+  url = "https://nodejsbackend-miage2022-2023test8.onrender.com/api/user";
   users=[
     {
       id:1,
