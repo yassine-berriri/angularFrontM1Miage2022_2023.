@@ -1,12 +1,10 @@
 {
   "name": "assignment-app",
   "version": "0.0.0",
-  "engines":{
-    "node":">=18 <19"
-  },
+ 
   "scripts": {
     "ng": "ng",
-    "start": "ng s",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
