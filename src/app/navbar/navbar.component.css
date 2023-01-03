@@ -14,7 +14,7 @@ mat-sidenav-content{
 }
 .login{
   position: relative;
-  left: 30%;
+  left: 27%;
   top: 10%;
   width: 416px;
   display: flex;
@@ -27,7 +27,12 @@ span{
   cursor: pointer;
 }
 
+.miage img{
+  
+  width: 99%;
+  max-height: 330px;
 
+}
 
 
 

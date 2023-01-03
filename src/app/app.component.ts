@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'Application de gestion de devoirs à rendre (Assignments)';
    constructor(private authService:AuthService,private router:Router, private assignmentService : AssignmentsService){}
   ngOnInit(): void {
-    this.router.navigate(['/assignments'])
+    //this.router.navigate(['/assignments'])
   }
    
    isAdmin(){
@@ -34,4 +34,5 @@ export class AppComponent implements OnInit {
     }); 
     console.log("BD inisialisé");
   }
+
 }

@@ -10,7 +10,7 @@ import { AuthService } from '../shared/auth.service';
 })
 export class NavbarComponent implements OnInit {
   router: any;
- 
+  url="assets/subjectImages/miage.jpg";
 
   constructor(private authService : AuthService,private assignmentService:AssignmentsService) { }
 
