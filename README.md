@@ -1,6 +1,6 @@
 # Mon projet Angular
 
-Ce projet Angular a été créé pour apprendre les bases de Angular.
+Ce projet Angular a été créé pour apprendre les bases d' Angular.
 
 ## Fonctionnalités
 
